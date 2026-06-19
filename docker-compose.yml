@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pedaman-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pedaman
+      POSTGRES_PASSWORD: pedaman
+      POSTGRES_DB: pedaman_dev
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
