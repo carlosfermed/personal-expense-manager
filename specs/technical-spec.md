@@ -653,8 +653,6 @@ Fields:
 
 - email;
 
-- name;
-
 - passwordHash;
 
 - createdAt;

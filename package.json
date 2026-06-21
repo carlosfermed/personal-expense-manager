@@ -1,7 +1,7 @@
 {
   "name": "pedaman",
   "version": "1.0.0",
-  "description": "personal data manager",
+  "description": "personal expense manager",
   "license": "ISC",
   "author": "carlosfermed",
   "type": "commonjs",
