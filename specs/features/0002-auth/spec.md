@@ -27,6 +27,12 @@ Allow users to create an account, sign in, and access authenticated endpoints us
 * Missing, malformed, invalid, or expired tokens are rejected.
 * Authentication failures use the API's standard error response.
 
+### Current Authenticated User
+
+* An authenticated user can retrieve their own public user data.
+* The endpoint requires a valid bearer token.
+* The response must not include the password or password hash.
+
 ## Endpoints
 
 ### `POST /auth/register`
@@ -91,6 +97,26 @@ Expected errors:
 * `400 Bad Request` when the request body is invalid.
 * `401 Unauthorized` when the credentials are invalid.
 
+### `GET /auth/me`
+
+Successful response: `200 OK`
+
+```json
+{
+  "data": {
+    "user": {
+      "id": "user-id",
+      "email": "user@example.com",
+      "createdAt": "2026-06-20T10:00:00.000Z"
+    }
+  }
+}
+```
+
+Expected errors:
+
+* `401 Unauthorized` when authentication is missing, malformed, invalid, or expired.
+
 ## Validation Rules
 
 * `email` is required and must be a valid email address.
@@ -123,6 +149,8 @@ Expected errors:
 * A registered user can log in with valid credentials.
 * Login rejects invalid credentials with the same generic error.
 * Successful registration and login return a valid access token.
+* An authenticated user can retrieve their current public user data.
+* Current user retrieval never returns the password or password hash.
 * The authentication middleware resolves the authenticated user from a valid bearer token.
 * Protected endpoints reject missing, malformed, invalid, and expired tokens.
 * Authentication behavior is covered by integration tests.

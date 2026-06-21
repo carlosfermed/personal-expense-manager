@@ -22,9 +22,10 @@
 * [ ] Implement password verification.
 * [ ] Implement access-token creation.
 * [ ] Implement access-token verification.
-* [ ] Add the user repository operations required by registration and login.
+* [ ] Add the user repository operations required by registration, login, and current-user retrieval.
 * [ ] Implement the registration service.
 * [ ] Implement the login service.
+* [ ] Implement the current-user retrieval service.
 * [ ] Ensure public user data excludes authentication-sensitive fields.
 
 ## HTTP Layer
@@ -33,6 +34,7 @@
 * [ ] Add the login request schema.
 * [ ] Implement `POST /auth/register`.
 * [ ] Implement `POST /auth/login`.
+* [ ] Implement `GET /auth/me`.
 * [ ] Implement bearer-token extraction.
 * [ ] Implement authentication middleware.
 * [ ] Expose the authenticated user through the request context.
@@ -54,11 +56,14 @@
 * [ ] Test authentication with a malformed authorization header.
 * [ ] Test authentication with an invalid token.
 * [ ] Test authentication with an expired token.
+* [ ] Test current-user retrieval with a valid bearer token.
+* [ ] Test current-user retrieval without valid authentication.
+* [ ] Verify that current-user retrieval does not return authentication-sensitive fields.
 * [ ] Verify that authentication tests are isolated and order-independent.
 
 ## Documentation and Verification
 
-* [ ] Document the registration and login endpoints.
+* [ ] Document the registration, login, and current-user endpoints.
 * [ ] Document how to authenticate protected requests.
 * [ ] Document the required environment variables.
 * [ ] Run database migration validation.
