@@ -4,7 +4,7 @@ Personal Expenses is a backend application that allows users to register, authen
 
 There is no frontend in the MVP.
 
-The project is intended as a learning-focused backend project for a junior backend developer. It should demonstrate clear product behavior, secure account access, ownership-aware expense management, documentation, and incremental development using a specification-driven workflow.
+The project focuses on secure account access, ownership-aware expense management, documentation, and incremental development using a specification-driven workflow.
 
 ## 2. Product Goals
 

@@ -25,7 +25,7 @@ The implementation must prioritize:
 - specification-driven development.
 
 
-The codebase should be understandable by a junior backend developer and by technical reviewers.
+The codebase should be understandable by technical reviewers.
 
 ## 3. Technology Stack
 

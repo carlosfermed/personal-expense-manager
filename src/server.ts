@@ -1,7 +1,7 @@
 import { app } from "./app";
+import { env } from "./config/env";
+import { logger } from "./shared/logger/logger";
 
-const port = Number(process.env.PORT ?? 3000);
-
-app.listen(port, () => {
-    console.info(`Server listening on port ${port}`);
+app.listen(env.PORT, () => {
+  logger.info(`Server listening on port ${env.PORT}`);
 });
