@@ -1,5 +1,7 @@
 # Authentication Spec
 
+Status: in-progress
+
 ## Goal
 
 Allow users to create an account, sign in, and access authenticated endpoints using a JSON Web Token.

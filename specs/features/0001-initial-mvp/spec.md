@@ -1,5 +1,7 @@
 # Initial MVP Spec
 
+Status: completed
+
 ## Goal
 
 Create the initial backend foundation for the personal expenses REST API.
