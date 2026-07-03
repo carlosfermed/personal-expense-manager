@@ -1,9 +1,9 @@
 import express from "express";
 
-import { authRoutes } from "./modules/auth/auth.routes";
-import { AppError } from "./shared/errors/app-error";
-import { errorCodes } from "./shared/errors/error-codes";
-import { errorHandler } from "./shared/errors/error-handler";
+import { authRoutes } from "./modules/auth/auth.routes.js";
+import { AppError } from "./shared/errors/app-error.js";
+import { errorCodes } from "./shared/errors/error-codes.js";
+import { errorHandler } from "./shared/errors/error-handler.js";
 
 export const app = express();
 

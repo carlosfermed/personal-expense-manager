@@ -4,17 +4,17 @@
   "description": "personal expense manager",
   "license": "ISC",
   "author": "carlosfermed",
-  "type": "commonjs",
+  "type": "module",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "npm run prisma:generate && tsc -p tsconfig.build.json",
     "start": "node dist/server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:migrate:deploy": "prisma migrate deploy",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "typecheck": "npm run prisma:generate && tsc --noEmit",
+    "test": "npm run prisma:generate && vitest run"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",

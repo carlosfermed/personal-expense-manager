@@ -1,10 +1,10 @@
 import type { ErrorRequestHandler } from "express";
 import { ZodError } from "zod";
 
-import { env } from "../../config/env";
-import { logger } from "../logger/logger";
-import { AppError } from "./app-error";
-import { errorCodes } from "./error-codes";
+import { env } from "../../config/env.js";
+import { logger } from "../logger/logger.js";
+import { AppError } from "./app-error.js";
+import { errorCodes } from "./error-codes.js";
 
 export const errorHandler: ErrorRequestHandler = (error, _request, response, _next) => {
   if (error instanceof AppError) {

@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 import type { SignOptions } from "jsonwebtoken";
 
-import { env } from "../../config/env";
-import { AppError } from "../errors/app-error";
-import { errorCodes } from "../errors/error-codes";
+import { env } from "../../config/env.js";
+import { AppError } from "../errors/app-error.js";
+import { errorCodes } from "../errors/error-codes.js";
 
 type AccessTokenPayload = {
   sub: string;

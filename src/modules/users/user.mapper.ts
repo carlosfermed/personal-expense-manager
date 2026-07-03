@@ -1,4 +1,4 @@
-import type { PublicUser, UserRecord } from "./user.types";
+import type { PublicUser, UserRecord } from "./user.types.js";
 
 export const toPublicUser = (user: UserRecord): PublicUser => ({
   id: user.id,

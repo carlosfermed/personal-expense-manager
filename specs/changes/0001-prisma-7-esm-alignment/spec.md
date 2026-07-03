@@ -1,6 +1,6 @@
 # Prisma 7 ESM Alignment Change Spec
 
-Status: proposed
+Status: completed
 
 ## Problem
 

@@ -27,7 +27,7 @@ Backend API for tracking personal expenses. The current feature implements the i
 npm install
 ```
 
-Create a local `.env` file using `.env.example` as the reference.
+Create a local `.env` file with the required environment variables listed below.
 
 ## Development
 
@@ -77,6 +77,8 @@ Generate Prisma Client:
 npm run prisma:generate
 ```
 
+Prisma Client is generated as ESM TypeScript into `src/generated/prisma`. The generated client is ignored by git and should be regenerated locally.
+
 Apply migrations in development:
 
 ```bash
@@ -101,6 +103,8 @@ npm run prisma:migrate:deploy
 npm run typecheck
 npm run test
 ```
+
+`npm run build`, `npm run typecheck`, and `npm run test` run Prisma Client generation before executing their main command.
 
 ## Endpoint Summary
 
@@ -208,6 +212,9 @@ Authorization: Bearer <access-token>
 
 - `src/app.ts` creates and exports the Express app for integration tests.
 - `src/server.ts` only starts the HTTP server.
+- The project runs as ESM.
+- Prisma Client uses the Prisma 7 `prisma-client` generator with `moduleFormat = "esm"`.
+- The generated Prisma Client is imported from `src/generated/prisma`.
 - Prisma access is encapsulated behind repositories.
 - Auth services keep password hashing, token creation, and public response shaping outside controllers.
 - Tests call the Express app directly with Supertest.

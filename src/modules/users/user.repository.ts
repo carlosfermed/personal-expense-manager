@@ -1,5 +1,5 @@
-import { prisma } from "../../db/prisma";
-import type { UserRecord } from "./user.types";
+import { prisma } from "../../db/prisma.js";
+import type { UserRecord } from "./user.types.js";
 
 type CreateUserInput = {
   email: string;

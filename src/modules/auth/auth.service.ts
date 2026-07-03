@@ -1,11 +1,11 @@
-import { createAccessToken } from "../../shared/auth/jwt";
-import { hashPassword, verifyPassword } from "../../shared/auth/password";
-import { AppError } from "../../shared/errors/app-error";
-import { errorCodes } from "../../shared/errors/error-codes";
-import { toPublicUser } from "../users/user.mapper";
-import { UserRepository } from "../users/user.repository";
-import type { PublicUser } from "../users/user.types";
-import type { LoginInput, RegisterInput } from "./auth.schemas";
+import { createAccessToken } from "../../shared/auth/jwt.js";
+import { hashPassword, verifyPassword } from "../../shared/auth/password.js";
+import { AppError } from "../../shared/errors/app-error.js";
+import { errorCodes } from "../../shared/errors/error-codes.js";
+import { toPublicUser } from "../users/user.mapper.js";
+import { UserRepository } from "../users/user.repository.js";
+import type { PublicUser } from "../users/user.types.js";
+import type { LoginInput, RegisterInput } from "./auth.schemas.js";
 
 type AuthResult = {
   user: PublicUser;

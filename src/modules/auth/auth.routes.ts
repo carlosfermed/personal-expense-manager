@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import { requireAuth } from "../../shared/auth/require-auth";
-import { asyncHandler } from "../../shared/http/async-handler";
-import { validateBody } from "../../shared/http/validate-request";
-import { login, me, register } from "./auth.controller";
-import { loginSchema, registerSchema } from "./auth.schemas";
+import { requireAuth } from "../../shared/auth/require-auth.js";
+import { asyncHandler } from "../../shared/http/async-handler.js";
+import { validateBody } from "../../shared/http/validate-request.js";
+import { login, me, register } from "./auth.controller.js";
+import { loginSchema, registerSchema } from "./auth.schemas.js";
 
 export const authRoutes = Router();
 

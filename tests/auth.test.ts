@@ -3,9 +3,9 @@ import jwt from "jsonwebtoken";
 import request from "supertest";
 import { afterAll, beforeEach, describe, expect, it } from "vitest";
 
-import { app } from "../src/app";
-import { prisma } from "../src/db/prisma";
-import { resetDatabase } from "./helpers/db";
+import { app } from "../src/app.js";
+import { prisma } from "../src/db/prisma.js";
+import { resetDatabase } from "./helpers/db.js";
 
 const uniqueEmail = () => `user-${crypto.randomUUID()}@example.com`;
 

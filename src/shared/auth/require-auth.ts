@@ -1,8 +1,8 @@
 import type { NextFunction, Request, Response } from "express";
 
-import { verifyAccessToken } from "./jwt";
-import { AppError } from "../errors/app-error";
-import { errorCodes } from "../errors/error-codes";
+import { verifyAccessToken } from "./jwt.js";
+import { AppError } from "../errors/app-error.js";
+import { errorCodes } from "../errors/error-codes.js";
 
 const bearerPrefix = "Bearer ";
 
