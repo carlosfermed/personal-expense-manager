@@ -63,6 +63,12 @@ Every new feature must live under:
 
 A feature may be implemented only after `spec.md`, `plan.md`, and `tasks.md` exist.
 
+Each feature `spec.md` must include exactly one status line near the top:
+
+```text
+Status: proposed | approved | in-progress | completed | cancelled
+```
+
 Each feature must:
 
 - reference the relevant product and technical requirements;
@@ -87,6 +93,14 @@ Every significant refactor or internal change must live under:
   tasks.md
 ```
 
+A change may be implemented only after `spec.md`, `plan.md`, and `tasks.md` exist.
+
+Each change `spec.md` must include exactly one status line near the top:
+
+```text
+Status: proposed | approved | in-progress | completed | cancelled
+```
+
 A change spec must explain:
 
 - the current problem;
@@ -107,6 +121,12 @@ Refactors must not change product behavior unless the behavior change is explici
 During implementation:
 
 - Follow the existing feature plan and task list.
+
+- Do not implement a feature or change while its spec status is `proposed`, `cancelled`, or `completed`.
+
+- Move the spec status to `in-progress` when implementation begins.
+
+- Move the spec status to `completed` only after implementation, documentation, task updates, and verification are complete.
 
 - Mark progress in `tasks.md` when tasks are completed.
 

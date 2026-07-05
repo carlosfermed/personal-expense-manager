@@ -1,10 +1,10 @@
 ## 1. Product Overview
 
-Personal Expenses REST API is a backend application that allows users to register, authenticate, and manage their personal expenses.
+Personal Expenses is a backend application that allows users to register, authenticate, and manage their personal expenses through an API.
 
-The application exposes a JSON REST API. There is no frontend in the MVP.
+There is no frontend in the MVP.
 
-The project is intended as a learning-focused backend project for a junior backend developer. It should demonstrate practical knowledge of REST API design, authentication, validation, relational data modelling, testing, documentation, and incremental development using a specification-driven workflow.
+The project focuses on secure account access, ownership-aware expense management, documentation, and incremental development using a specification-driven workflow.
 
 ## 2. Product Goals
 
@@ -25,7 +25,7 @@ The product must allow users to:
 - interact with clear and documented API behavior.
 
 
-The project must also demonstrate a professional backend workflow based on specs, plans, tasks, tests, and documentation.
+The project must also demonstrate a professional backend workflow based on specs, plans, tasks, verification, and documentation.
 
 ## 3. Target Users
 
@@ -43,11 +43,11 @@ The MVP includes:
 
 - user login;
 
-- JWT-based authentication;
+- token-based authentication;
 
 - authenticated access to protected resources;
 
-- current authenticated user endpoint;
+- current authenticated user access;
 
 - category creation;
 
@@ -87,9 +87,7 @@ The MVP includes:
 
     - spending grouped by category;
 
-- endpoint tests for the main API flows;
-
-- README with setup, usage, scripts, endpoint summary, and technical decisions.
+- project documentation for setup and usage.
 
 
 ### 4.2 Out of Scope
@@ -145,7 +143,7 @@ A user represents a person who owns expenses and categories.
 
 A user can:
 
-- register with an email, password, and name;
+- register with an email, password;
 
 - log in with valid credentials;
 
@@ -216,9 +214,11 @@ An expense contains:
 
 Rules:
 
-- The expense date is a date-only value in `YYYY-MM-DD` format.
+- The expense date is a calendar date.
 
-- The expense amount is a positive decimal value with a maximum of 2 decimal places.
+- The expense amount is a positive decimal value.
+
+- Technical formatting and precision rules are defined in the technical specification.
 
 
 ## 6. Functional Requirements
@@ -229,13 +229,11 @@ Rules:
 
 The API must allow a new user to register.
 
-Required data:
+Required product data:
 
 - email;
 
 - password;
-
-- name.
 
 
 Rules:
@@ -270,7 +268,7 @@ Rules:
 
 - On successful login, the API returns an access token.
 
-- The access token is used to access protected endpoints.
+- The access token is used to access protected functionality.
 
 
 #### Current Authenticated User
@@ -279,7 +277,7 @@ The API must provide an endpoint for retrieving the current authenticated user.
 
 Rules:
 
-- The endpoint must require a valid JWT.
+- The current user information must require valid authentication.
 
 - The response must not include the password or password hash.
 
@@ -349,7 +347,7 @@ Required data:
 
 - date;
 
-- categoryId.
+- category.
 
 
 Optional data:
@@ -363,11 +361,7 @@ Rules:
 
 - Amount must be greater than zero.
 
-- Amount must have a maximum of 2 decimal places.
-
 - Date is required.
-
-- Date must use `YYYY-MM-DD` format.
 
 - Category must exist.
 
@@ -388,7 +382,7 @@ Rules:
 
 - Results are paginated.
 
-- Pagination supports `page` and `limit`.
+- Technical pagination parameters are defined in the technical specification.
 
 
 #### Get Expense by ID
@@ -414,7 +408,7 @@ Updatable fields:
 
 - date;
 
-- categoryId;
+- category;
 
 - description.
 
@@ -423,13 +417,11 @@ Rules:
 
 - A user cannot update another user’s expense.
 
-- If `categoryId` is changed, the new category must belong to the authenticated user.
+- If the category is changed, the new category must belong to the authenticated user.
 
 - Amount must remain greater than zero.
 
-- Amount must have a maximum of 2 decimal places.
-
-- Date must use `YYYY-MM-DD` format.
+- Date must remain a valid calendar date.
 
 
 #### Delete Expense
@@ -447,17 +439,15 @@ Rules:
 
 The API must allow authenticated users to filter their own expenses.
 
-Supported filters:
+Supported product filters:
 
-- startDate;
+- date range;
 
-- endDate;
+- category;
 
-- categoryId;
+- minimum amount;
 
-- minAmount;
-
-- maxAmount.
+- maximum amount.
 
 
 Rules:
@@ -481,7 +471,7 @@ Rules:
 
 The API must allow an authenticated user to request a spending summary for a specific month.
 
-Required query parameters:
+Required selection:
 
 - year;
 
@@ -518,24 +508,7 @@ Rules:
     - grouped category list is empty.
 
 
-Example conceptual response:
-
-```json
-{
-  "year": 2026,
-  "month": 6,
-  "totalSpent": "850.75",
-  "expenseCount": 17,
-  "byCategory": [
-    {
-      "categoryId": "cat_123",
-      "categoryName": "Food",
-      "totalSpent": "230.50",
-      "expenseCount": 8
-    }
-  ]
-}
-```
+Exact request and response schemas are defined in the technical specification and feature specifications.
 
 ## 7. Product Rules
 
@@ -558,18 +531,9 @@ A user must never access another user’s data, even if they know another resour
 
 ### 7.2 Validation
 
-The API must validate all incoming request data.
+The API must reject invalid input.
 
-Validation applies to:
-
-- request body;
-
-- route parameters;
-
-- query parameters.
-
-
-Invalid requests must return structured errors.
+Invalid input must return clear errors.
 
 ### 7.3 Error Handling
 
@@ -598,7 +562,7 @@ The product must follow basic backend security expectations:
 
 - passwords are hashed before storage;
 
-- JWT tokens are required for protected endpoints;
+- authentication tokens are required for protected access;
 
 - passwords and password hashes are never returned in API responses;
 
@@ -628,10 +592,10 @@ Exact paths, HTTP methods, request schemas, response schemas, and status codes a
 |---|---|
 |Default categories|Users create categories manually|
 |Deleting used categories|Rejected if the category has expenses|
-|Expense amount|Positive decimal with maximum 2 decimal places|
-|Expense date|Date-only value in `YYYY-MM-DD` format|
+|Expense amount|Positive decimal|
+|Expense date|Calendar date|
 |Monthly summary|Includes total spent, expense count, and grouped totals by category|
-|Expense listing pagination|Included using `page` and `limit`|
+|Expense listing pagination|Included; parameters are defined in the technical specification|
 |User profile update|Out of scope|
 |Password change|Out of scope|
 |Refresh tokens|Out of scope|
@@ -669,7 +633,7 @@ The MVP is complete when:
 
 - a user can register and log in;
 
-- a user can authenticate using JWT;
+- a user can authenticate using the configured token mechanism;
 
 - a user can retrieve their authenticated user profile;
 
@@ -691,8 +655,6 @@ The MVP is complete when:
 
 - invalid requests return validation errors;
 
-- main endpoint flows are covered by automated tests;
-
-- README explains setup, usage, endpoints, scripts, environment variables, and technical decisions;
+- README explains setup and usage;
 
 - the repository contains product, technical, agent, feature, and change specs following the agreed SDD structure.

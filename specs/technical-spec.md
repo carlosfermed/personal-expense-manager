@@ -8,6 +8,8 @@ Product behavior is defined in `/specs/product-spec.md`. This file defines the t
 
 Every feature specification must comply with this file unless a controlled change is introduced under `/specs/changes`.
 
+Feature and change specs must include a `Status` field so planned, active, completed, and cancelled work can be tracked consistently.
+
 ## 2. Technical Goals
 
 The implementation must prioritize:
@@ -25,7 +27,7 @@ The implementation must prioritize:
 - specification-driven development.
 
 
-The codebase should be understandable by a junior backend developer and by technical reviewers.
+The codebase should be understandable by technical reviewers.
 
 ## 3. Technology Stack
 
@@ -653,8 +655,6 @@ Fields:
 
 - email;
 
-- name;
-
 - passwordHash;
 
 - createdAt;
@@ -1080,7 +1080,47 @@ The README must stay synchronized with implemented behavior.
 
 If an endpoint, script, environment variable, or setup step changes, README must be updated in the same feature or change.
 
-## 21. Out of Scope for Technical Implementation
+## 21. Specification Workflow
+
+Feature and change work must be represented by a folder containing:
+
+```text
+spec.md
+plan.md
+tasks.md
+```
+
+Each `spec.md` must include exactly one status line near the top:
+
+```text
+Status: proposed | approved | in-progress | completed | cancelled
+```
+
+Status values mean:
+
+|Status|Meaning|
+|---|---|
+|proposed|The work is documented for review but must not be implemented yet.|
+|approved|The work is accepted and ready to implement.|
+|in-progress|Implementation has started and task progress must be tracked in `tasks.md`.|
+|completed|Implementation, documentation, task updates, and verification are complete.|
+|cancelled|The work is intentionally abandoned and must not be implemented.|
+
+A feature or change may be implemented only when its status is `approved` or `in-progress`.
+
+When implementation begins, the status must be updated to `in-progress`.
+
+When work is finished, the status may be updated to `completed` only after:
+
+- behavior matches the relevant spec;
+
+- required tests and documentation are updated;
+
+- completed tasks are checked in `tasks.md`;
+
+- relevant verification commands have been run or explicitly reported as not run.
+
+## 22. Out of Scope for Technical Implementation
 
 The MVP must not include:
 
@@ -1119,7 +1159,7 @@ The MVP must not include:
 
 These may only be introduced through future product and technical changes.
 
-## 22. Technical Acceptance Criteria
+## 23. Technical Acceptance Criteria
 
 The technical implementation is acceptable when:
 
