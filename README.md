@@ -106,6 +106,8 @@ npm run test
 
 `npm run build`, `npm run typecheck`, and `npm run test` run Prisma Client generation before executing their main command.
 
+The project does not currently define a linting command. Until a linter is introduced through a documented change, verification uses the TypeScript check, tests, and relevant Prisma migration commands.
+
 ## Endpoint Summary
 
 ```text

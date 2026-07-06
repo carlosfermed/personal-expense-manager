@@ -14,7 +14,7 @@
 10. Add centralized handling for authentication and registration errors.
 11. Add integration tests for registration, login, current-user retrieval, and protected-route authentication.
 12. Update the API documentation and environment setup instructions.
-13. Run database migration checks, tests, linting, and TypeScript validation.
+13. Run database migration checks, tests, and TypeScript validation.
 
 ## Verification Strategy
 

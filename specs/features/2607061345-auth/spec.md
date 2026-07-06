@@ -1,6 +1,6 @@
 # Authentication Spec
 
-Status: in-progress
+Status: completed
 
 ## Goal
 

@@ -55,11 +55,13 @@ If documents conflict, stop and report the conflict instead of choosing silently
 Every new feature must live under:
 
 ```text
-/specs/features/XXXX-feature-name/
+/specs/features/YYMMDDHHMM-kebab-case-name/
   spec.md
   plan.md
   tasks.md
 ```
+
+The timestamp prefix must use local project time at creation time.
 
 A feature may be implemented only after `spec.md`, `plan.md`, and `tasks.md` exist.
 
@@ -87,11 +89,13 @@ Each feature must:
 Every significant refactor or internal change must live under:
 
 ```text
-/specs/changes/XXXX-change-name/
+/specs/changes/YYMMDDHHMM-kebab-case-name/
   spec.md
   plan.md
   tasks.md
 ```
+
+The timestamp prefix must use local project time at creation time.
 
 A change may be implemented only after `spec.md`, `plan.md`, and `tasks.md` exist.
 

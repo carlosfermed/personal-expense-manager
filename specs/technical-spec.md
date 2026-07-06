@@ -905,6 +905,8 @@ Code should be:
 
 Avoid premature abstraction.
 
+The project does not define a linting tool or lint command for the MVP. Feature and change plans must not require linting until a future approved change introduces a linter and documents the corresponding command.
+
 ### 17.1 Naming
 
 Use clear names such as:
@@ -1083,6 +1085,28 @@ If an endpoint, script, environment variable, or setup step changes, README must
 ## 21. Specification Workflow
 
 Feature and change work must be represented by a folder containing:
+
+```text
+specs/features/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+
+specs/changes/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+```
+
+The timestamp prefix must use local project time at creation time, with exactly this format:
+
+```text
+YYMMDDHHMM
+```
+
+The descriptive portion must use kebab-case.
+
+Each feature or change folder must contain:
 
 ```text
 spec.md

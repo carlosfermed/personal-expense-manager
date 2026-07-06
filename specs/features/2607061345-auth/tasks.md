@@ -4,7 +4,7 @@
 
 * [x] Add the user model required for authentication.
 * [x] Add a unique constraint for normalized email addresses.
-* [ ] Create and apply the authentication database migration.
+* [x] Create and apply the authentication database migration.
 * [x] Verify that the schema and generated database client are up to date.
 
 ## Configuration and Security
@@ -66,7 +66,6 @@
 * [x] Document the registration, login, and current-user endpoints.
 * [x] Document how to authenticate protected requests.
 * [x] Document the required environment variables.
-* [ ] Run database migration validation.
-* [ ] Run the complete test suite.
-* [ ] Run linting.
+* [x] Run database migration validation.
+* [x] Run the complete test suite.
 * [x] Run the TypeScript check.
