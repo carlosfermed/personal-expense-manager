@@ -1087,6 +1087,28 @@ If an endpoint, script, environment variable, or setup step changes, README must
 Feature and change work must be represented by a folder containing:
 
 ```text
+specs/features/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+
+specs/changes/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+```
+
+The timestamp prefix must use local project time at creation time, with exactly this format:
+
+```text
+YYMMDDHHMM
+```
+
+The descriptive portion must use kebab-case.
+
+Each feature or change folder must contain:
+
+```text
 spec.md
 plan.md
 tasks.md

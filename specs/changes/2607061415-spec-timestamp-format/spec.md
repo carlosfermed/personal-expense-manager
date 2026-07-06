@@ -1,6 +1,6 @@
 # Specification Timestamp Format Change Spec
 
-Status: proposed
+Status: completed
 
 ## Problem
 
@@ -31,13 +31,13 @@ The timestamp must use the local project time at creation time.
 Examples:
 
 ```text
-specs/features/2607061415-auth/
+specs/features/2607061345-auth/
 specs/changes/2607061415-spec-timestamp-format/
 ```
 
 The implementation must:
 
-- update `AGENTS.md` to replace `XXXX-feature-name` and `XXXX-change-name` with `YYMMDDHHMM-kebab-case-name`;
+- update `AGENTS.md` to use `YYMMDDHHMM-kebab-case-name` for feature and change folders;
 
 - update `specs/technical-spec.md` so the specification workflow documents the same naming convention;
 
