@@ -34,11 +34,11 @@
 - [x] Run `npm run test`.
 - [x] Review workflow configuration for expected command order.
 - [x] Document any command that could not be run.
-- [ ] Confirm remote GitHub Actions validation after the workflow is pushed.
+- [x] Confirm remote GitHub Actions validation after the workflow is pushed.
 
 No local verification command was skipped.
 
 ## Completion
 
 - [x] Mark completed tasks.
-- [ ] Move spec status to `completed` after implementation and verification are complete.
+- [x] Move spec status to `completed` after implementation and verification are complete.
