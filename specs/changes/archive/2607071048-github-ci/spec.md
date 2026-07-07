@@ -1,6 +1,6 @@
 # GitHub CI Change Spec
 
-Status: in-progress
+Status: completed
 
 ## 1. Problem
 

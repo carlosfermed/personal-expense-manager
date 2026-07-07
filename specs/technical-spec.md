@@ -1084,7 +1084,7 @@ If an endpoint, script, environment variable, or setup step changes, README must
 
 ## 21. Specification Workflow
 
-Feature and change work must be represented by a folder containing:
+New and active feature and change work must be represented by a folder containing:
 
 ```text
 specs/features/YYMMDDHHMM-kebab-case-name/
@@ -1097,6 +1097,26 @@ specs/changes/YYMMDDHHMM-kebab-case-name/
   plan.md
   tasks.md
 ```
+
+Completed feature and change work may remain in the main feature and change directories while it is recent or useful for review.
+
+Completing a feature or change does not automatically authorize archiving it.
+
+Completed feature and change work may be archived only after explicit user authorization, under:
+
+```text
+specs/features/archive/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+
+specs/changes/archive/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+```
+
+Only specs with `Status: completed` may be archived.
 
 The timestamp prefix must use local project time at creation time, with exactly this format:
 
@@ -1143,6 +1163,8 @@ When work is finished, the status may be updated to `completed` only after:
 - completed tasks are checked in `tasks.md`;
 
 - relevant verification commands have been run or explicitly reported as not run.
+
+Archived specs remain part of the repository history and may be consulted for traceability, but they do not represent pending or active work.
 
 ## 22. Out of Scope for Technical Implementation
 
