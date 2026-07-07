@@ -108,6 +108,18 @@ npm run test
 
 The project does not currently define a linting command. Until a linter is introduced through a documented change, verification uses the TypeScript check, tests, and relevant Prisma migration commands.
 
+## Continuous Integration
+
+GitHub Actions runs the project CI workflow on pull requests and pushes to `main`.
+
+The workflow installs dependencies with `npm ci`, starts PostgreSQL, applies committed Prisma migrations, and runs:
+
+```bash
+npm run typecheck
+npm run build
+npm run test
+```
+
 ## Endpoint Summary
 
 ```text
