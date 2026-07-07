@@ -1,6 +1,6 @@
 # GitHub CI Change Spec
 
-Status: proposed
+Status: in-progress
 
 ## 1. Problem
 
