@@ -52,7 +52,7 @@ If documents conflict, stop and report the conflict instead of choosing silently
 
 ## 4. Feature Workflow
 
-Every new feature must live under:
+Every new or active feature must live under:
 
 ```text
 /specs/features/YYMMDDHHMM-kebab-case-name/
@@ -83,10 +83,23 @@ Each feature must:
 
 - update documentation when behavior, setup, scripts, endpoints, or environment variables change.
 
+Completed feature specs may remain in `/specs/features/` while they are recent or useful for review.
+
+Completed feature specs may be archived only after the user explicitly authorizes archiving, under:
+
+```text
+/specs/features/archive/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+```
+
+Only feature specs with `Status: completed` may be archived.
+
 
 ## 5. Change Workflow
 
-Every significant refactor or internal change must live under:
+Every new or active significant refactor or internal change must live under:
 
 ```text
 /specs/changes/YYMMDDHHMM-kebab-case-name/
@@ -120,6 +133,19 @@ A change spec must explain:
 
 Refactors must not change product behavior unless the behavior change is explicitly documented.
 
+Completed change specs may remain in `/specs/changes/` while they are recent or useful for review.
+
+Completed change specs may be archived only after the user explicitly authorizes archiving, under:
+
+```text
+/specs/changes/archive/YYMMDDHHMM-kebab-case-name/
+  spec.md
+  plan.md
+  tasks.md
+```
+
+Only change specs with `Status: completed` may be archived.
+
 ## 6. Implementation Discipline
 
 During implementation:
@@ -143,6 +169,14 @@ During implementation:
 - Avoid broad rewrites unless the change spec requires them.
 
 - Do not leave partially implemented behavior undocumented.
+
+- Do not archive `proposed`, `approved`, `in-progress`, or `cancelled` specs unless the user explicitly requests it.
+
+- Do not archive a completed spec automatically when its status changes to `completed`.
+
+- Archive completed specs only when the user explicitly authorizes that archive operation.
+
+- When archiving a completed spec, move the whole spec directory unchanged, including `spec.md`, `plan.md`, and `tasks.md`.
 
 
 ## 7. Verification
@@ -183,3 +217,9 @@ Before considering work complete, verify that:
 - completed work is reflected in `tasks.md`;
 
 - commands were run, or skipped commands were clearly reported.
+
+
+## 9. Context Hygiene
+
+- Do not read or analyze `prisma/migrations/**` or `src/generated/prisma/**` unless the user explicitly asks or the task directly requires it.
+- When searching the codebase, exclude those paths where practical.
